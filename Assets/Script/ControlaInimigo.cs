@@ -5,6 +5,7 @@ using UnityEngine;
 public class ControlaInimigo : MonoBehaviour
 {
     public GameObject Jogador;
+    public float Velocidade = 5; 
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class ControlaInimigo : MonoBehaviour
     }
     void FixedUpdate()
     {
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + Jogador.transform.position);
+        Vector3 direcao = Jogador.transform.position - transform.position;
+        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + direcao * Velocidade * Time.deltaTime);
     }
 }
