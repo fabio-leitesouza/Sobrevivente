@@ -5,11 +5,7 @@ using UnityEngine;
 public class ControlaJogador : MonoBehaviour
 {
     public float Velocidade = 10;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Vector3 direcao;
 
     // Update is called once per frame
     void Update()
@@ -17,7 +13,7 @@ public class ControlaJogador : MonoBehaviour
         float eixoX = Input.GetAxis("Horizontal");
         float eixoZ = Input.GetAxis("Vertical");     
 
-        Vector3 direcao = new Vector3(eixoX, 0, eixoZ);
+        direcao = new Vector3(eixoX, 0, eixoZ);
 
         transform.Translate(direcao * Velocidade *Time.deltaTime);
 
@@ -28,5 +24,9 @@ public class ControlaJogador : MonoBehaviour
         {
             GetComponent<Animator>().SetBool("Walk", false);
         }
+    }
+    void FixedUpdate()
+    {
+        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + (direcao * Velocidade * Time.deltaTime));
     }
 }
