@@ -28,8 +28,6 @@ public class ControlaInimigo : MonoBehaviour
 
             Quaternion novaRotacao = Quaternion.LookRotation(direcao);
             GetComponent<Rigidbody>().MoveRotation(novaRotacao);
-        }
-
-        
+        }        
     }
 }
