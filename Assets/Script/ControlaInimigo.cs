@@ -19,7 +19,14 @@ public class ControlaInimigo : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector3 direcao = Jogador.transform.position - transform.position;
-        GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + direcao * Velocidade * Time.deltaTime);
+        float distancia = Vector3.Distance(transform.position, Jogador.transform.position);
+
+        if(distancia > 2)
+        {
+            Vector3 direcao = Jogador.transform.position - transform.position;
+            GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + direcao * Velocidade * Time.deltaTime);
+        }
+
+        
     }
 }
