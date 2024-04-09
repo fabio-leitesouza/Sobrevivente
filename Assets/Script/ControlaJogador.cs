@@ -36,7 +36,7 @@ public class ControlaJogador : MonoBehaviour
 
         RaycastHit impacto;
         
-        if(Physics.Raycast(raio, out impacto, 20, MascaraChao))
+        if(Physics.Raycast(raio, out impacto, 50, MascaraChao))
         {
             Vector3 posicaoMiraJogador = impacto.point - transform.position;
             posicaoMiraJogador.y = transform.position.y;

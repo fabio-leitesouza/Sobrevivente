@@ -10,4 +10,11 @@ public class Faca : MonoBehaviour
     {
         GetComponent<Rigidbody>().MovePosition(GetComponent<Rigidbody>().position + transform.forward * Velocidade);
     }
+    void OnTriggerEnter(Collider objetoDeColisao)
+    {
+        if(objetoDeColisao.tag == "Inimigo")
+        {
+            Destroy(objetoDeColisao.gameObject);
+        }
+    }
 }
