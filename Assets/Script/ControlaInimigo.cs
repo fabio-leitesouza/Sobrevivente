@@ -28,7 +28,7 @@ public class ControlaInimigo : MonoBehaviour
 
             Quaternion novaRotacao = Quaternion.LookRotation(direcao);
             GetComponent<Rigidbody>().MoveRotation(novaRotacao);
-            if(distancia < 3)
+            if(distancia < 2)
             {
                 GetComponent<Animator>().SetBool("Atacando", true);
             }
@@ -37,5 +37,11 @@ public class ControlaInimigo : MonoBehaviour
                 GetComponent<Animator>().SetBool("Atacando", false);
             }
         }        
+    }
+    void InimigoAtacando()
+    {
+        Time.timeScale = 0;
+        Jogador.GetComponent<ControlaJogador>().TextoGameOver.SetActive(true);
+        Jogador.GetComponent<ControlaJogador>().Vivo = false;
     }
 }
