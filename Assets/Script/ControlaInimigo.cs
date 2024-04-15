@@ -9,7 +9,7 @@ public class ControlaInimigo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Jogador = GameObject.FindWithTag("Player");
     }
 
     // Update is called once per frame
